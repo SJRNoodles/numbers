@@ -1,0 +1,50 @@
+<html>
+<script>
+
+var round = 1;
+var plrwins = 0;
+var aiwins = 0;
+
+function numberGet(){
+var plr = Math.floor(Math.random() * 1000) + 1;
+document.getElementById("plrnumb").innerHTML = plr;
+var ai = Math.floor(Math.random() * 1000) + 1;
+document.getElementById("ainumb").innerHTML = ai;
+if (round < 20){
+ if (plr > ai){
+  plrwins=plrwins+1;
+ }else{
+ aiwins=aiwins+1
+ }
+ 
+ document.getElementById("msg").innerHTML = "You: " + plrwins + " AI: " + aiwins + " - Round " + round;
+ round = round + 1;
+}else{
+document.getElementById("play_button").disabled = true;
+ if (plrwins > aiwins){
+ document.getElementById("msg").innerHTML = "You win!";
+ }else{
+  document.getElementById("msg").innerHTML = "AI wins!";
+ }
+}
+
+}
+</script>
+<style>
+
+
+
+
+
+</style>
+<div id="game" style="background:#42f572;padding:10px;margin: 0px auto;width:40%;font-family:Helvetica, Arial;">
+<div id="screen" style="background:#ffffff;padding:10px;">
+<div id="announcer" style="background:#ffb700;padding:5px;color:white;"><p id="msg">You: 0 AI: 0 - Round 1</p></div>
+<div id="card"><p id="plrnumb">You</p></div>
+<div id="card"><p id="ainumb">AI</p></div>
+</div>
+<br>
+<button id="play_button" type="button" onclick="numberGet();">PLAY!</button>
+</div>
+
+</html>
